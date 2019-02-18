@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>增加专区</title>
+    <link rel="stylesheet" href="/resume/plug-in/layui/css/layui.css">
+</head>
+<body>
+    <form class="layui-form" action="">
+        <div class="layui-form-item margin-top-20">
+            <label class="layui-form-label">专区名称</label>
+            <div class="layui-input-block">
+                <input id="areaName" class="layui-input width-200" type="text" placeholder="请输入专区名称" autocomplete="off" lay-verify="title">
+            </div>
+        </div>
+
+        <div class="layui-form-item layui-form-text width-500">
+            <label class="layui-form-label">描述</label>
+            <div class="layui-input-block">
+                <textarea id="remark" class="layui-textarea" placeholder="请输入内容"></textarea>
+            </div>
+        </div>
+    </form>
+    <script src="/resume/js/jquery-1.9.1.js"></script>
+    <script src="/resume/plug-in/layui/layui.all.js"></script>
+    <script>
+        $(function () {
+        })
+    </script>
+</body>
+</html>
+<style>
+    .width-200{
+        width: 200px;
+    }
+    .margin-top-20{
+        margin-top: 20px;
+    }
+    .width-500{
+        width: 500px;
+    }
+</style>

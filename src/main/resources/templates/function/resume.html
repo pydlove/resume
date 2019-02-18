@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th.text="${cardModel.area.areaName">个人履历</title>
+
+    <link rel="stylesheet" href="/resume/plug-in/layui/css/layui.css">
+</head>
+<body>
+
+    <div class="part-first-div-1">
+        <div class="part-first-div-2">
+            <p>潘勇</p>
+            <span>高级工程师 就职于：北京思特奇科技股份有限公司</span>
+        </div>
+    </div>
+    <div class="part-second-div-1">
+        <div class="sec-box-1 ele-float-left">
+            <div class="bo-btn ele-float-left">
+                <dl>
+                    <dt>
+                        <span class="ele-float-left font-14">新增专区</span>
+                        <i id="addArea" class="btn-icon-add ele-float-left" onclick="openAddArea()"></i>
+
+                        <span class="ele-float-left font-14">新增帖子</span>
+                        <i id="addCard" class="btn-icon-add ele-float-left" onclick="openAddCard()"></i>
+                    </dt>
+                </dl>
+            </div>
+            <div class="bo-menu ele-float-left">
+                <ul th:each="area : ${cardModel.areas}">
+                    <div class="margin-buttom-10 margin-top-5">
+                        <span th:text="${area.areaName}"></span>
+                        <a href="" class="ele-float-right more" th:areaId="${area.id}" th:areaName="${area.areaName}" onclick="openMorePage(this);" >...更多</a>
+                    </div>
+                    <li th:each="card:${cardModel.cards}" th:if="${card.areaId} eq ${area.id}" class="ti-li">
+                        <a  th:href="${card.href}" target="view_window">
+                            <span th:text="${card.title}"></span>
+                        </a>
+                    </li>
+                </ul>
+
+
+                <!--<ul>-->
+                    <!--云计算服务-->
+                    <!--<li th:each="card:${cardModel.cards}" >-->
+                        <!--<a  th:href="${card.href}" target="view_window">-->
+                            <!--<span th:text="${card.title}"></span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+
+                <!--<ul>-->
+                    <!--IDEA 专区-->
+                    <!--<li>-->
+                        <!--<a href="idea/IDEA 如何自动生成 serialVersionUID .html" target="view_window">IDEA如何自动生成SerialVersionUID</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+
+                <!--<ul>-->
+                    <!--SpringBoot 专区-->
+                    <!--<li>-->
+                        <!--<a href="/springboot/Springboot之@SpringBootApplication讲解.html" target="view_window">Springboot之@SpringBootApplication讲解.html</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="springboot/使用Gradle构建Springboot项目.html" target="view_window">使用Gradle构建Springboot项目</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+
+                <!--<ul>-->
+                    <!--makedownPad2 专区-->
+                    <!--<li>-->
+                        <!--<a href="makedownPad2/installAndUse.html" target="view_window">makedownPad2 安装使用手册</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            </div>
+        </div>
+        <div class="sec-box-2 ">
+
+        </div>
+    </div>
+    <div class="part-first-div-1">
+        <div class="part-first-div-2">
+        </div>
+    </div>
+    <div class="part-third-div-1">
+        <div class="th-content-1">
+            <div class="con-box-1 ele-float-left">
+                <div class="bo-l-1 ele-float-left"></div>
+                <div class="bo-l-2 ele-float-left">
+                    <p>
+                        只有一条路不能选择，那就放弃的路；只有一条路不能拒绝，那就是成长的路
+                    </p>
+                </div>
+                <div class="bo-resume ele-float-left">
+                    <p align="left" class="bold">
+                        个人标准
+                    </p>
+                    <p align="left">
+                        我喜欢设计， 有问题不逃避，愿意虚心学习，<br>
+                        自信但不自负，不以自我为中心。
+                    </p>
+                </div>
+                <div class="bo-resume ele-float-left">
+                    <p align="left">
+                        职业生涯
+                    </p>
+                    <p align="left">
+                        2017.7-至今 就职于北京思特奇科技股份有限公司，
+                        从事软件研发和技术管理工作，职称高级工程师，职位
+                        浙江分支技术负责人和公司IAAS云产品的产品负责人，
+                        浙江分支技术组大组长和分支软件团队负责人
+                    </p>
+                    <p align="left">
+                        2016.10-2017.7 就职于杭州网投科技有限公司，
+                        从事软件开发主力工程师，主要参与统一运维一体化
+                        产品的设计和研发
+                    </p>
+                    <p align="left">
+                        2014.9-2016.9 就职于越科科技有限公司，
+                        从实习到主力开发，参与BS项目的设计和研发
+                    </p>
+                </div>
+            </div>
+            <div class="con-box-2 ele-float-left">
+                <img class="box-bg-1" src="../images/tangyx.jpg" alt="" >
+            </div>
+        </div>
+    </div>
+
+    <script src="/resume/js/jquery-1.9.1.js"></script>
+    <script src="/resume/plug-in/layui/layui.all.js"></script>
+    <script>
+
+       $(function () {
+           // $("#addArea").click(function () {
+           //     var writeFrame = createFrame("/resume/area/open/addPage", "writeFrame", 380, 380);
+           //     createModal("newArea", "confirmAddArea", 400, 400, "新增专区", writeFrame, true);
+           // });
+
+       })
+
+       function openAddArea () {
+           layer.open({
+               type: 2 //此处以iframe举例
+               , title: '新增专区'
+               , area: ['600px', '400px']
+               , shade: 0
+               , shadeClose: true
+               , maxmin: false
+               , content: '/resume/area/open/addPage'
+               , btn: ['确定', '取消'] //只是为了演示
+               , yes: function (index, layero) {
+                   var body = layer.getChildFrame('body', index);
+                   var areaName = body.find('#areaName').val();
+                   var remark = body.find('#remark').val();
+
+                   $.ajax({
+                         url: '/resume/area/add'
+                       , type : 'get'
+                       , dataType : 'text'
+                       , data : { 'areaName' : areaName, 'remark' : remark}
+                       , cache : false
+                       , async : false
+                       , success : function(data, textStatus, jqXHR) {
+                            if(data == 'success'){
+                                layer.closeAll();
+                                layer.msg('增加专区成功，刷新页面可以浏览！', {icon: 6});
+                            }
+                       }
+                   });
+
+               }
+               , btn2: function () {
+                   layer.closeAll();
+               }
+               // , zIndex: layer.zIndex //重点1
+               , success: function (layero) {
+                   layer.setTop(layero); //重点2
+               }
+           });
+       }
+
+       function openAddCard () {
+           layer.open({
+               type: 2 //此处以iframe举例
+               , title: '新增帖子'
+               , area: ['600px', '600px']
+               , shade: 0
+               , shadeClose: true
+               , maxmin: false
+               , content: '/resume/card/open/addPage'
+               , btn: ['确定', '取消'] //只是为了演示
+               , yes: function (index, layero) {
+                   var body = layer.getChildFrame('body', index);
+                   var title = body.find('#title').val();
+                   var href = body.find('#href').val();
+                   var author = body.find('#author').val();
+                   var areaId = body.find('#areaId').val();
+                   var remark = body.find('#remark').val();
+
+                   $.ajax({
+                       url: '/resume/card/add'
+                       , type : 'get'
+                       , dataType : 'text'
+                       , data : { 'title': title, 'href' : href, 'author' : author, 'areaId' : areaId, 'remark' : remark}
+                       , cache : false
+                       , async : false
+                       , success : function(data, textStatus, jqXHR) {
+                           if(data == 'success'){
+                               layer.closeAll();
+                               layer.msg('增加帖子成功，刷新页面可以浏览！', {icon: 6});
+                           }
+                       }
+                   });
+
+               }
+               , btn2: function () {
+                   layer.closeAll();
+               }
+               , zIndex: layer.zIndex //重点1
+               , success: function (layero) {
+                   layer.setTop(layero); //重点2
+               }
+           });
+       }
+        
+       function openMorePage(e) {
+           var areaId = $(e).attr("areaId");
+           var areaName = $(e).attr("areaName");
+           window.open('/resume/card/open/more?areaId='+ areaId +'&areaName=' + areaName);
+       }
+
+    </script>
+</body>
+</html>
+<style>
+
+    /*first part*/
+
+    .part-first-div-1{
+        width: 100%;
+        height: 100px;
+        background: url("../images/top-bg-1.jpg") ;
+    }
+    .part-first-div-2{
+        position: fixed;
+        left: 30%;
+        color: #ffffff;
+        font-family: STZhongsong;
+        margin: 0px;
+    }
+    .part-first-div-2 p{
+        font-size: 32px;
+        margin: 0px;
+    }
+    .part-first-div-2 h2{
+        margin-bottom: 0px;
+    }
+    .part-div-1 span{
+    }
+
+    /*second  part*/
+
+    .part-second-div-1{
+        color: #ffffff;
+        font-family: STZhongsong;
+        width: 100%;
+        height: 750px;
+        background: #232323;
+        /*border: 1px solid red;*/
+    }
+    .sec-box-1{
+        width: 30%;
+        height: 100%;
+        /*border: 1px solid red;*/
+    }
+    .sec-box-2{
+        width: 30%;
+        height: 100%;
+        background: #232323;
+        /*border: 1px solid red;*/
+    }
+    .bo-btn{
+        font-size: 18px;
+        text-align: center;
+        width: 20%;
+        height: 100%;
+        border-right:2px solid #ffffff;
+        margin: 0px;
+    }
+    .bo-btn span{
+        padding-top: 4px;
+        padding-right: 10px;
+        padding-left: 5px;
+    }
+    .btn-icon-add{
+        background: url("../images/xinzeng.png");
+        display: block;
+        width: 32px;
+        height: 32px;
+    }
+    .bo-menu{
+        width: 70%;
+        height: 100%;
+    }
+
+    /*third part*/
+
+    .part-third-div-1{
+        width: 40%;
+        height: 800px;
+        position: fixed;
+        top: 80px;
+        left: 30%;
+        background: rgba(0, 0, 0, 0.78);
+        /*border: 1px solid #4226ff;*/
+    }
+    .th-content-1{
+        width: 100%;
+        height: 300px;
+        /*border: 1px solid #72ff94;*/
+    }
+    .con-box-1{
+        width: 70%;
+        height: 100%;
+        /*border: 1px solid #ffdc4f;*/
+    }
+    .bo-l-1{
+        margin-left: 5%;
+        margin-top: 50px;
+        width: 4px;
+        height: 120px;
+        background: #49c3ff;
+    }
+    .bo-l-2{
+        margin-left: 5%;
+        margin-top: 50px;
+        width:  60%;
+        height: 120px;
+        color: #fff;
+    }
+    .bo-resume{
+        color: #fff;
+        width: 100%;
+        height: 130px;
+        /*border: 1px solid red;*/
+    }
+    .bo-resume p{
+        margin-left: 5%;
+    }
+    .con-box-2{
+        width: 29%;
+        height: 100%;
+        /*border: 1px solid #ffdc4f;*/
+    }
+
+    .box-bg-1{
+        border-radius:50%;
+        overflow:hidden;
+        border:5px solid #fff;
+        width: 150px;
+        height: 150px;
+        position: relative;
+        top: 40px;
+        left: 20px;
+    }
+    .more{
+        height: 21px;
+        line-height: 21px;
+        padding: 0 11px;
+        border: 1px #26bbdb solid;
+        border-radius: 3px;
+        color: #fff;
+        display: inline-block;
+        text-decoration: none;
+        font-size: 12px;
+        outline: none;
+    }
+    .more:hover{
+
+    }
+
+
+    /*common part*/
+   .ele-float-left{
+       float: left;
+    }
+    .ele-float-right{
+        float: right;
+    }
+    .ti-li a{
+        height: 21px;
+        width: 100%;
+        line-height: 21px;
+        padding: 0 11px;
+        background: #02bafa;
+        border: 1px #26bbdb solid;
+        border-radius: 3px;
+        color: #fff;
+        display: inline-block;
+        text-decoration: none;
+        font-size: 12px;
+        outline: none;
+    }
+    .ti-li a:link {
+        color:#ffffff;
+        text-decoration:underline;
+    }
+    .ti-li a:visited
+    {
+        color:#ffffff;
+        text-decoration:none;
+    }
+    .ti-li a:hover
+    {
+        color:#000000;
+        text-decoration:none;
+        border: 1px #4cfa5c solid;
+        background: #4cfa5c;
+    }
+    .ti-li a:active
+    {
+        color:#FFFFFF;
+        text-decoration:none;
+    }
+    .bold{
+        font-weight: bold;
+    }
+    .font-14{
+        font-size:14px;
+    }
+    .margin-buttom-10{
+        margin-bottom: 10px;
+    }
+    .margin-top-5{
+        margin-top: 5px;
+    }
+</style>
